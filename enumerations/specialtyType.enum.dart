@@ -1,0 +1,4 @@
+enum SpecialtyType {
+  Cardiologist,
+  GeneralPractitioner,
+}
