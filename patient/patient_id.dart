@@ -1,5 +1,3 @@
-
-
 import '../value_object_interface.dart';
 
 class PatientId implements IValueObject<PatientId>{
