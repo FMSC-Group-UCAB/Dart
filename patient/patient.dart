@@ -1,4 +1,3 @@
-
 import '../holdType_enum.dart';
 import 'patient_birthDate.dart';
 import 'patient_email.dart';
@@ -8,7 +7,7 @@ import 'patient_lastName.dart';
 import 'patient_occupation.dart';
 import 'patient_phoneNumber.dart';
 
-abstract class Patient {
+class Patient {
 
   PatientId id;
   PatientFirstName firstName;
