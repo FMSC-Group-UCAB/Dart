@@ -1,3 +1,3 @@
-abstract class IValueObject{
-	bool equals(IValueObject object);
+abstract class IValueObject<T> {
+  bool equals(T other);
 }
