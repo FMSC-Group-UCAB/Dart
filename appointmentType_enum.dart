@@ -1,0 +1,4 @@
+enum AppointmentType {
+  Virtual,
+  FaceToFace
+}
