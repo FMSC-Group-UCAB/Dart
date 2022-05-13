@@ -9,7 +9,7 @@ class Doctor {
   DoctorId id;
   DoctorFirstName firstName;
   DoctorLastName lastName;
-  SpecialtyType specialty;
+  List<SpecialtyType> specialty;
   DoctorLocation location;
   HoldType holdType;
 
