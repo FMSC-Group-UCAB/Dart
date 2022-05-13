@@ -1,4 +1,4 @@
-import '../interfaces/value_object_interface.dart';
+import '../../interfaces/value_object_interface.dart';
 
 class CasefileSaturation implements IValueObject<CasefileSaturation> {
   int saturation;
@@ -9,4 +9,6 @@ class CasefileSaturation implements IValueObject<CasefileSaturation> {
     //Agregar validaciones
     return this.saturation == other.saturation;
   }
+
+  getSaturation() => this.saturation;
 }

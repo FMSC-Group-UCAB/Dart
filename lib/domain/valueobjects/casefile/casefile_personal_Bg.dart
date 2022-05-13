@@ -1,4 +1,4 @@
-import '../interfaces/value_object_interface.dart';
+import '../../interfaces/value_object_interface.dart';
 
 class CasefilePersonalBg implements IValueObject<CasefilePersonalBg> {
   String personalBg;
@@ -9,4 +9,6 @@ class CasefilePersonalBg implements IValueObject<CasefilePersonalBg> {
     //Agregar validaciones
     return this.personalBg == other.personalBg;
   }
+
+  getPersonalBg() => this.personalBg;
 }

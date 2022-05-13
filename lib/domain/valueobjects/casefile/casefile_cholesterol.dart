@@ -1,14 +1,16 @@
-import '../interfaces/value_object_interface.dart';
+import '../../interfaces/value_object_interface.dart';
 
 class CasefileCholesterol implements IValueObject<CasefileCholesterol> {
   //Atributos
-  int value;
+  int Cholesterol;
 
   //Constructor
-  CasefileCholesterol(this.value);
+  CasefileCholesterol(this.Cholesterol);
 
   //Métodos
   bool equals(CasefileCholesterol other) {
-    return this.value == other.value;
+    return this.Cholesterol == other.Cholesterol;
   }
+
+  getCholesterol() => this.Cholesterol;
 }

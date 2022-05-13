@@ -1,8 +1,8 @@
-import '../valueobjects/doctor_id.dart';
-import '../valueobjects/doctor_first_name.dart';
-import '../valueobjects/doctor_last_name.dart';
+import '../valueobjects/doctor/doctor_id.dart';
+import '../valueobjects/doctor/doctor_first_name.dart';
+import '../valueobjects/doctor/doctor_last_name.dart';
 import '../enumerations/specialty_type_enum.dart';
-import '../valueobjects/doctor_location.dart';
+import '../valueobjects/doctor/doctor_location.dart';
 import '../enumerations/hold_type_enum.dart';
 
 class Doctor {

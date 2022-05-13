@@ -1,4 +1,4 @@
-import '../interfaces/value_object_interface.dart';
+import '../../interfaces/value_object_interface.dart';
 
 class CasefileHeartRate implements IValueObject<CasefileHeartRate> {
   int heartRate;
@@ -9,4 +9,6 @@ class CasefileHeartRate implements IValueObject<CasefileHeartRate> {
     //Agregar validaciones
     return this.heartRate == other.heartRate;
   }
+
+  getHeartRate() => this.heartRate;
 }

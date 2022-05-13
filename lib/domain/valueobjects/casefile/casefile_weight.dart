@@ -1,4 +1,4 @@
-import '../interfaces/value_object_interface.dart';
+import '../../interfaces/value_object_interface.dart';
 
 class CasefileWeight implements IValueObject<CasefileWeight> {
   int weight;
@@ -9,4 +9,6 @@ class CasefileWeight implements IValueObject<CasefileWeight> {
     //Agregar validaciones
     return this.weight == other.weight;
   }
+
+  getWeight() => this.weight;
 }

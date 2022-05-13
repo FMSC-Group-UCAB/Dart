@@ -1,4 +1,4 @@
-import '../interfaces/value_object_interface.dart';
+import '../../interfaces/value_object_interface.dart';
 
 class CasefileBloodPressure implements IValueObject<CasefileBloodPressure> {
   String bloodPressure;
@@ -9,4 +9,6 @@ class CasefileBloodPressure implements IValueObject<CasefileBloodPressure> {
     //Agregar validaciones
     return this.bloodPressure == other.bloodPressure;
   }
+
+  getBloodPressure() => this.bloodPressure;
 }

@@ -1,4 +1,4 @@
-import '../interfaces/value_object_interface.dart';
+import '../../interfaces/value_object_interface.dart';
 
 class CasefileHeight implements IValueObject<CasefileHeight> {
   int height;
@@ -9,4 +9,6 @@ class CasefileHeight implements IValueObject<CasefileHeight> {
     //Agregar validaciones
     return this.height == other.height;
   }
+
+  getHeight() => this.height;
 }

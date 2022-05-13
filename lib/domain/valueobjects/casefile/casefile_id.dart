@@ -1,4 +1,4 @@
-import '../interfaces/value_object_interface.dart';
+import '../../interfaces/value_object_interface.dart';
 
 class CasefileId implements IValueObject<CasefileId> {
   int id;
@@ -9,4 +9,6 @@ class CasefileId implements IValueObject<CasefileId> {
     //Agregar validaciones
     return this.id == other.id;
   }
+
+  getId() => this.id;
 }
