@@ -35,4 +35,14 @@ abstract class Casefile {
   updateCasefile(Casefile other);
   //Agregar Static
   void fromSpecialty(SpecialtyType specialtyType, object);
+
+  //Agregar Getters
+  //La funcion flecha es porque es un metodo con una sola accion
+  CasefileId getId() => this.id;
+  CasefilePersonalBg getPersonalBg() => this.personalBg;
+  CasefileBloodPressure getBloodPressure() => this.bloodPressure;
+  CasefileHeartRate getHeartRate() => this.heartRate;
+  CasefileSaturation getSaturation() => this.saturation;
+  CasefileHeight getHeight() => this.height;
+  SpecialtyType getSpecialtyType() => this.specialtyType;
 }

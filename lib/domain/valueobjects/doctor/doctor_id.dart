@@ -1,4 +1,4 @@
-import '../interfaces/value_object_interface.dart';
+import '../../interfaces/value_object_interface.dart';
 
 class DoctorId implements IValueObject<DoctorId> {
   int id;

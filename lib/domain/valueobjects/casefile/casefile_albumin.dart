@@ -1,4 +1,4 @@
-import '../interfaces/value_object_interface.dart';
+import '../../interfaces/value_object_interface.dart';
 
 class CasefileAlbumin implements IValueObject<CasefileAlbumin> {
   String albumin;
@@ -9,4 +9,6 @@ class CasefileAlbumin implements IValueObject<CasefileAlbumin> {
     //Agregar validaciones
     return this.albumin == other.albumin;
   }
+
+  getAlbumin() => this.albumin;
 }

@@ -39,4 +39,8 @@ class CasefileCardiologist extends Casefile {
 
   @override
   void fromSpecialty(SpecialtyType specialtyType, object) {}
+
+  getAlbumin() => this.albumin;
+
+  getCholesterol() => this.cholesterol;
 }
