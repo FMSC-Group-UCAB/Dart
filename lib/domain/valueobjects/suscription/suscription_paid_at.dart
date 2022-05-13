@@ -1,17 +1,27 @@
 import '../../interfaces/value_object_interface.dart';
 
+///SuscriptionPaidAt: Value Object para las fechas de pago de las suscripciones.
 class SuscriptionPaidAt implements IValueObject<SuscriptionPaidAt> {
-  final String _paidAt;
+  late final String _paidAt;
 
-  String get Value {
+  //Getters
+  String get value {
     return _paidAt;
   }
 
-  SuscriptionPaidAt(this._paidAt);
+  ///Constructor de SuscriptionPaidAt Value Object
+  SuscriptionPaidAt(String paidAt) {
+    //ToDo: Validaciones...
+    _paidAt = paidAt;
+  }
 
   @override
   bool equals(SuscriptionPaidAt other) {
-    //Agregar validaciones
     return _paidAt == other._paidAt;
+  }
+
+  ///Patron Factory.
+  static SuscriptionPaidAt create(String paidAt) {
+    return SuscriptionPaidAt(paidAt);
   }
 }

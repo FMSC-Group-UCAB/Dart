@@ -1,17 +1,27 @@
 import '../../interfaces/value_object_interface.dart';
 
+///SuscriptionId: Es el Value Object del identificador de las suscripciones.
 class SuscriptionId implements IValueObject<SuscriptionId> {
-  final int _id;
+  late final int _id;
 
-  int get Value {
+  //Getters
+  int get value {
     return _id;
   }
 
-  SuscriptionId(this._id);
+  ///Constructor de SuscriptionId Value Object
+  SuscriptionId(int id) {
+    //ToDo: Validaciones...
+    _id = id;
+  }
 
   @override
   bool equals(SuscriptionId other) {
-    //Agregar validaciones
     return _id == other._id;
+  }
+
+  ///Patron Factory.
+  static SuscriptionId create(int id) {
+    return SuscriptionId(id);
   }
 }

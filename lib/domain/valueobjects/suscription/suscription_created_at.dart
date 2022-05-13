@@ -1,17 +1,27 @@
 import '../../interfaces/value_object_interface.dart';
 
+///SuscriptionCreatedAt: Value Object para las fechas de creación de las suscripciones.
 class SuscriptionCreatedAt implements IValueObject<SuscriptionCreatedAt> {
-  final String _createdAt;
+  late final String _createdAt;
 
-  String get Value {
+  //Getters
+  String get value {
     return _createdAt;
   }
 
-  SuscriptionCreatedAt(this._createdAt);
+  ///Constructor de SuscriptionCreatedAt Value Object
+  SuscriptionCreatedAt(String createdAt) {
+    //ToDo: Validaciones...
+    _createdAt = createdAt;
+  }
 
   @override
   bool equals(SuscriptionCreatedAt other) {
-    //Agregar validaciones
     return _createdAt == other._createdAt;
+  }
+
+  ///Patron Factory.
+  static SuscriptionCreatedAt create(String createdAt) {
+    return SuscriptionCreatedAt(createdAt);
   }
 }
