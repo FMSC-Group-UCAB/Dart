@@ -1,15 +1,22 @@
 import '../../interfaces/value_object_interface.dart';
 
+///PatientId: Es un value object utilizado para el manejo de los identificadores de los pacientes.
 class PatientId implements IValueObject<PatientId>{
 
-  int id;
+  late int _id;
 
-  PatientId(this.id);
+  PatientId(this._id);
 
+  // Getters
+  int get valueId => _id;
 
   bool equals(PatientId other) {
-    //Agregar validaciones
-    return this.id == other.id;  
+    return this._id == other._id;  
+  }
+
+  /// Patron factory
+  static PatientId create(int id) {
+    return PatientId(id);
   }
 
 

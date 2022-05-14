@@ -1,16 +1,22 @@
 import '../../interfaces/value_object_interface.dart';
 
+///PatientEmail: Es un value object utilizado para el manejo de los emails de los pacientes.
 class PatientEmail implements IValueObject<PatientEmail>{
 
-  String email;
+  String _email;
 
-  PatientEmail(this.email);
+  PatientEmail(this._email);
 
+  // Getters
+  String get valueEmail => _email;
 
   bool equals(PatientEmail other) {
-    //Agregar validaciones
-    return this.email == other.email;  
+    return this._email == other._email;  
   }
 
+  /// Patron factory
+  static PatientEmail create(String email) {
+    return PatientEmail(email);
+  }
 
 }

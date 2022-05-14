@@ -1,16 +1,22 @@
 import '../../interfaces/value_object_interface.dart';
 
+///PatientLastName: Es un value object utilizado para el manejo de los apellidos de los pacientes.
 class PatientLastName implements IValueObject<PatientLastName>{
 
-  String lastName;
+  String _lastName;
 
-  PatientLastName(this.lastName);
+  PatientLastName(this._lastName);
 
+  // Getters
+  String get valueLastName => _lastName;
 
   bool equals(PatientLastName other) {
-    //Agregar validaciones
-    return this.lastName == other.lastName;  
+    return this._lastName == other._lastName;  
   }
 
+  /// Patron factory
+  static PatientLastName create(String lastName) {
+    return PatientLastName(lastName);
+  }
 
 }

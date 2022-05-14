@@ -1,4 +1,4 @@
 enum SuscriptionType { 
-  monthly, 
-  annual 
+  MONTHLY, 
+  ANNUAL 
 }

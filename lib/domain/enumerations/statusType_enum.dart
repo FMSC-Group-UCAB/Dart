@@ -1,6 +1,6 @@
 enum StatusType {
-  pending,
-  cancelled,
-  scheduled,
-  done
+  PENDING,
+  CANCELLED,
+  SCHEDULED,
+  DONE
 }
