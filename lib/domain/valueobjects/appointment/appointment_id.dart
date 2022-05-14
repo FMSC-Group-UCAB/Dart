@@ -16,6 +16,7 @@ class AppointmentId implements IValueObject<AppointmentId>{
 
 
   /// Patron factory
+  /// La funcion recibe [id] para crear una instancia del Value Object [AppointmentId].
   static AppointmentId create(int id) {
     return AppointmentId(id);
   }

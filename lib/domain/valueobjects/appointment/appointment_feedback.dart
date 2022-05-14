@@ -18,6 +18,7 @@ class AppointmentFeedback implements IValueObject<AppointmentFeedback>{
 
 
   /// Patron factory
+  /// La funcion recibe [rating] y [comment] para crear una instancia del Value Object [AppointmentFeedback].
   static AppointmentFeedback create(int rating, String comment) {
     return AppointmentFeedback(rating, comment);
   }

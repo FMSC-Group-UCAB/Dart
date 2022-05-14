@@ -15,6 +15,7 @@ class PatientFirstName implements IValueObject<PatientFirstName>{
   }
 
   /// Patron factory
+  /// La funcion recibe [firstName] para crear una instancia del Value Object [PatientFirstName].
   static PatientFirstName create(String firstName) {
     return PatientFirstName(firstName);
   }

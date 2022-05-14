@@ -17,6 +17,7 @@ class AppointmentDate implements IValueObject<AppointmentDate>{
 
 
   /// Patron factory
+  /// La funcion recibe [date] para crear una instancia del Value Object [AppointmentDate].
   static AppointmentDate create(String date) {
     return AppointmentDate(date);
   }

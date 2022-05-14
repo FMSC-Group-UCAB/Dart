@@ -15,6 +15,7 @@ class PatientEmail implements IValueObject<PatientEmail>{
   }
 
   /// Patron factory
+  /// La funcion recibe [email] para crear una instancia del Value Object [PatientEmail].
   static PatientEmail create(String email) {
     return PatientEmail(email);
   }

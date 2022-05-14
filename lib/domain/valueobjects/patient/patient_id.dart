@@ -15,6 +15,7 @@ class PatientId implements IValueObject<PatientId>{
   }
 
   /// Patron factory
+  /// La funcion recibe [id] para crear una instancia del Value Object [PatientId].
   static PatientId create(int id) {
     return PatientId(id);
   }

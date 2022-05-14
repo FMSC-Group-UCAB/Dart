@@ -16,6 +16,7 @@ class PatientPhoneNumber implements IValueObject<PatientPhoneNumber>{
 
 
   /// Patron factory
+  /// La funcion recibe [phoneNumber] para crear una instancia del Value Object [PatientPhoneNumber].
   static PatientPhoneNumber create(String phoneNumber) {
     return PatientPhoneNumber(phoneNumber);
   }
