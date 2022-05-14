@@ -9,9 +9,22 @@ import '../valueobjects/casefile/casefile_id.dart';
 import '../valueobjects/casefile/casefile_saturation.dart';
 import '../valueobjects/casefile/casefile_height.dart';
 
+/// Clase para el manejo de las historias medicas relacionadas con cardilogia
+
 class CasefileCardiologist extends Casefile {
+  
   late CasefileAlbumin _albumin;
   late CasefileCholesterol _cholesterol;
+
+  //Getters
+  CasefileAlbumin get Albumin => _albumin;
+
+  CasefileCholesterol get Cholesterol => _cholesterol;
+
+  //Setters
+  set Albumin(CasefileAlbumin albumin) => _albumin = albumin;
+
+  set Cholesterol(CasefileCholesterol cholesterol) => _cholesterol = cholesterol;
 
   //Constructor
 
@@ -35,8 +48,9 @@ class CasefileCardiologist extends Casefile {
           specialtyType,
         );
 
-  //Aplicacion del patron de diseño factory
-
+  ///Aplicacion del patron de diseño factory
+  /// Recibe [id], [personalBg], [bloodPressure], [heartRate], [saturation], [height], [specialtyType], [cholesterol] y [albumin] como parametros
+  /// Crea una instancia de [CasefileCardiologist]
   static CasefileCardiologist create(
     CasefileId id,
     CasefilePersonalBg personalBg,
@@ -62,22 +76,11 @@ class CasefileCardiologist extends Casefile {
   }
 
 
-  //Getters
-  CasefileAlbumin get Albumin => _albumin;
-
-  CasefileCholesterol get Cholesterol => _cholesterol;
-
-  //Setters
-  set Albumin(CasefileAlbumin albumin) => _albumin = albumin;
-
-  set Cholesterol(CasefileCholesterol cholesterol) =>
-      _cholesterol = cholesterol;
-
-  //Metodos
-
+  /// Recibe una instancia de [CasefileCardiologist] y la actualiza con los datos de [other]
   @override
   updateCasefile(Casefile other) {}
 
+  /// Recibe una instancia de [SpecialtyType] y un objeto [object]
   @override
   void fromSpecialty(SpecialtyType specialtyType, object) {}
 }

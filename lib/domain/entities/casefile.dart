@@ -6,6 +6,8 @@ import '../valueobjects/casefile/casefile_saturation.dart';
 import '../valueobjects/casefile/casefile_heart_rate.dart';
 import '../valueobjects/casefile/casefile_id.dart';
 
+/// Clase plantilla para el manejo de las historias medicas de los pacientes
+
 abstract class Casefile {
   //Atributos
   late final CasefileId _id;
@@ -16,6 +18,24 @@ abstract class Casefile {
   late CasefileHeight _height;
   late SpecialtyType _specialtyType;
  
+  //getters
+  CasefileId get id => _id;
+  CasefilePersonalBg get personalBg => _personalBg;
+  CasefileBloodPressure get bloodPressure => _bloodPressure;
+  CasefileHeartRate get heartRate => _heartRate;
+  CasefileSaturation get saturation => _saturation;
+  CasefileHeight get height => _height;
+  SpecialtyType get specialtyType => _specialtyType;
+
+  // setters
+
+  set personalBg(CasefilePersonalBg personalBg) => _personalBg = personalBg;
+  set bloodPressure(CasefileBloodPressure bloodPressure) => _bloodPressure = bloodPressure;
+  set heartRate(CasefileHeartRate heartRate) => _heartRate = heartRate;
+  set saturation(CasefileSaturation saturation) => _saturation = saturation;
+  set height(CasefileHeight height) => _height = height;
+  set specialtyType(SpecialtyType specialtyType) => _specialtyType = specialtyType;
+
   //Constructor
   Casefile(
       CasefileId id,
@@ -33,29 +53,13 @@ abstract class Casefile {
     _height = height;
     _specialtyType = specialtyType;
   }
+  
   //Métodos
   updateCasefile(Casefile other);
+  
   //Agregar Static
   void fromSpecialty(SpecialtyType specialtyType, object);
 
-  //getters
-  CasefileId get id => _id;
-  CasefilePersonalBg get personalBg => _personalBg;
-  CasefileBloodPressure get bloodPressure => _bloodPressure;
-  CasefileHeartRate get heartRate => _heartRate;
-  CasefileSaturation get saturation => _saturation;
-  CasefileHeight get height => _height;
-  SpecialtyType get specialtyType => _specialtyType;
 
-  // setters
-
-  set personalBg(CasefilePersonalBg personalBg) => _personalBg = personalBg;
-  set bloodPressure(CasefileBloodPressure bloodPressure) =>
-      _bloodPressure = bloodPressure;
-  set heartRate(CasefileHeartRate heartRate) => _heartRate = heartRate;
-  set saturation(CasefileSaturation saturation) => _saturation = saturation;
-  set height(CasefileHeight height) => _height = height;
-  set specialtyType(SpecialtyType specialtyType) =>
-      _specialtyType = specialtyType;
 
 }
