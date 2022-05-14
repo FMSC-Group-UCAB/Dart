@@ -1,5 +1,5 @@
 enum HoldType { 
-  none, 
-  badUse,
-  expiredSuscription 
+  NONE, 
+  BADUSE,
+  EXPIREDSUSCRIPTION 
 }

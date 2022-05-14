@@ -1,5 +1,5 @@
 enum SpecialtyType { 
-  cardiologist, 
-  ophthalmologist, 
-  otolaryngologist 
+  CARDIOLOGY, 
+  OPHTALMOLOGY, 
+  OTOLARYNGOLOGY, 
   }

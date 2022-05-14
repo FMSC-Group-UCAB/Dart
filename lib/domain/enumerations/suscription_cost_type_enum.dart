@@ -1,4 +1,4 @@
 enum SuscriptionCostType { 
-  basic,
-  premium
+  BASIC,
+  PREMIUM
 }

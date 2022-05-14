@@ -1,4 +1,4 @@
 enum AppointmentType {
-  virtual,
-  faceToFace
+  VIRTUAL,
+  FACETOFACE
 }
