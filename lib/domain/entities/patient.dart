@@ -60,6 +60,8 @@ class Patient {
   }
 
   ///Patron Factory.
+  /// La funcion recibe [id], [firstName], [lastName], [birthDate], [email], [phoneNumber], [occupation] y [holdType]
+  /// para crear una instancia de la clase [Patient].
   static Patient create(
       PatientId id,
       PatientFirstName firstName,
