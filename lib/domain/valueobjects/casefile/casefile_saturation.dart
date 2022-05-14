@@ -1,14 +1,22 @@
 import '../../interfaces/value_object_interface.dart';
 
 class CasefileSaturation implements IValueObject<CasefileSaturation> {
-  int saturation;
+  int _saturation;
 
-  CasefileSaturation(this.saturation);
+  //Constructor
+
+  CasefileSaturation(this._saturation);
+
+  //Getters
+  int get Saturation => _saturation;
 
   bool equals(CasefileSaturation other) {
     //Agregar validaciones
-    return this.saturation == other.saturation;
+    return this._saturation == other._saturation;
   }
 
-  getSaturation() => this.saturation;
+  // Aplicacion del patron factory
+  static CasefileSaturation create(int saturation) {
+    return CasefileSaturation(saturation);
+  }
 }

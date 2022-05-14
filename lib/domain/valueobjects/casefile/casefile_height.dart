@@ -1,14 +1,22 @@
 import '../../interfaces/value_object_interface.dart';
 
 class CasefileHeight implements IValueObject<CasefileHeight> {
-  int height;
+  int _height;
 
-  CasefileHeight(this.height);
+  //Constructor
+
+  CasefileHeight(this._height);
+
+  //Getters
+  int get Height => _height;
 
   bool equals(CasefileHeight other) {
     //Agregar validaciones
-    return this.height == other.height;
+    return this._height == other._height;
   }
 
-  getHeight() => this.height;
+  // Aplicacion del patron factory
+  static CasefileHeight create(int height) {
+    return CasefileHeight(height);
+  }
 }

@@ -1,14 +1,22 @@
 import '../../interfaces/value_object_interface.dart';
 
 class CasefileId implements IValueObject<CasefileId> {
-  int id;
+  late int _id;
 
-  CasefileId(this.id);
+  //Constructor
+
+  CasefileId(this._id);
+
+  //Getters
+  int get Id => _id;
 
   bool equals(CasefileId other) {
     //Agregar validaciones
-    return this.id == other.id;
+    return this._id == other._id;
   }
 
-  getId() => this.id;
+  // Aplicacion del patron factory
+  static CasefileId create(int id) {
+    return CasefileId(id);
+  }
 }
