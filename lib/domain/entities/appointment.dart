@@ -42,6 +42,8 @@ class Appointment {
 
 
   ///Patron Factory.
+  ///La funcion recibe [id], [status], [date], [appointmentType], [specialtyType]
+  ///para crear una instancia de la clase [Appointment].
   static Appointment create(
       AppointmentId id,
       StatusType status,
