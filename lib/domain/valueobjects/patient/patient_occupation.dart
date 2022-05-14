@@ -3,12 +3,18 @@ import '../../interfaces/value_object_interface.dart';
 ///PatientOccupation: Es un value object utilizado para el manejo de las ocupaciones de los pacientes.
 class PatientOccupation implements IValueObject<PatientOccupation>{
 
-  String _occupation;
-
-  PatientOccupation(this._occupation);
+  late final String _occupation;
 
   // Getters
-  String get valueOccupation => _occupation;
+  String get value => _occupation;
+
+
+  ///Constructor de PatientOccupation Value Object
+  PatientOccupation(String occupation){
+    //Agregar validaciones
+    this._occupation = occupation;
+  }
+
 
   bool equals(PatientOccupation other) {
     return this._occupation == other._occupation;  

@@ -3,7 +3,7 @@ import '../../interfaces/value_object_interface.dart';
 ///AppointmentId: Es un value object utilizado para el manejo de los ids de los citas.
 class AppointmentId implements IValueObject<AppointmentId>{
 
-  late int _id;
+  late final int _id;
 
   // Getters
   int get value => _id;

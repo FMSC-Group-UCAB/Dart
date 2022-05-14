@@ -3,12 +3,18 @@ import '../../interfaces/value_object_interface.dart';
 ///PatientPhoneNumber: Es un value object utilizado para el manejo de los telefonos de los pacientes.
 class PatientPhoneNumber implements IValueObject<PatientPhoneNumber>{
 
-  String _phoneNumber;
-
-  PatientPhoneNumber(this._phoneNumber);
+  late final String _phoneNumber;
 
   // Getters
-  String get valuePhoneNumber => _phoneNumber;
+  String get value => _phoneNumber;
+
+
+  ///Constructor de PatientPhoneNumber Value Object
+  PatientPhoneNumber(String phoneNumber){
+    //Agregar validaciones
+    this._phoneNumber = phoneNumber;
+  }
+
 
   bool equals(PatientPhoneNumber other) {
     return this._phoneNumber == other._phoneNumber;  
