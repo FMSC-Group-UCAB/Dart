@@ -8,7 +8,7 @@ class PatientBirthDate implements IValueObject<PatientBirthDate>{
   PatientBirthDate(this._birthDAte);
 
   // Getters
-  String get birthDAte => _birthDAte;
+  String get valueBirthDAte => _birthDAte;
 
   bool equals(PatientBirthDate other) {
     return this._birthDAte == other._birthDAte;  

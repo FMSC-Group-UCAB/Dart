@@ -8,7 +8,7 @@ class PatientId implements IValueObject<PatientId>{
   PatientId(this._id);
 
   // Getters
-  int get id => _id;
+  int get valueId => _id;
 
   bool equals(PatientId other) {
     return this._id == other._id;  

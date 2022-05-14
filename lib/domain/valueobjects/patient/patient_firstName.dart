@@ -8,7 +8,7 @@ class PatientFirstName implements IValueObject<PatientFirstName>{
   PatientFirstName(this._firstName);
 
   // Getters
-  String get firstName => _firstName;
+  String get valueFirstName => _firstName;
 
   bool equals(PatientFirstName other) {
     return this._firstName == other._firstName;  

@@ -8,7 +8,7 @@ class PatientPhoneNumber implements IValueObject<PatientPhoneNumber>{
   PatientPhoneNumber(this._phoneNumber);
 
   // Getters
-  String get phoneNumber => _phoneNumber;
+  String get valuePhoneNumber => _phoneNumber;
 
   bool equals(PatientPhoneNumber other) {
     return this._phoneNumber == other._phoneNumber;  

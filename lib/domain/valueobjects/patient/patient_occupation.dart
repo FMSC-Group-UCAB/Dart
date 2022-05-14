@@ -8,7 +8,7 @@ class PatientOccupation implements IValueObject<PatientOccupation>{
   PatientOccupation(this._occupation);
 
   // Getters
-  String get occupation => _occupation;
+  String get valueOccupation => _occupation;
 
   bool equals(PatientOccupation other) {
     return this._occupation == other._occupation;  

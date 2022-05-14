@@ -8,7 +8,7 @@ class PatientEmail implements IValueObject<PatientEmail>{
   PatientEmail(this._email);
 
   // Getters
-  String get email => _email;
+  String get valueEmail => _email;
 
   bool equals(PatientEmail other) {
     return this._email == other._email;  
