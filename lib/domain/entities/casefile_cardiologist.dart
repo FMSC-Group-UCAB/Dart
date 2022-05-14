@@ -10,8 +10,10 @@ import '../valueobjects/casefile/casefile_saturation.dart';
 import '../valueobjects/casefile/casefile_height.dart';
 
 class CasefileCardiologist extends Casefile {
-  CasefileAlbumin? albumin;
-  CasefileCholesterol? cholesterol;
+  late CasefileAlbumin _albumin;
+  late CasefileCholesterol _cholesterol;
+
+  //Constructor
 
   CasefileCardiologist({
     required CasefileId id,
@@ -24,13 +26,52 @@ class CasefileCardiologist extends Casefile {
     required CasefileAlbumin albumin,
     required CasefileCholesterol cholesterol,
   }) : super(
-            id: id,
-            personalBg: personalBg,
-            bloodPressure: bloodPressure,
-            heartRate: heartRate,
-            saturation: saturation,
-            height: height,
-            specialtyType: specialtyType);
+          id,
+          personalBg,
+          bloodPressure,
+          heartRate,
+          saturation,
+          height,
+          specialtyType,
+        );
+
+  //Aplicacion del patron de diseño factory
+
+  static CasefileCardiologist create(
+    CasefileId id,
+    CasefilePersonalBg personalBg,
+    CasefileBloodPressure bloodPressure,
+    CasefileHeartRate heartRate,
+    CasefileSaturation saturation,
+    CasefileHeight height,
+    SpecialtyType specialtyType,
+    CasefileAlbumin albumin,
+    CasefileCholesterol cholesterol,
+  ) {
+    return CasefileCardiologist(
+      id: id,
+      personalBg: personalBg,
+      bloodPressure: bloodPressure,
+      heartRate: heartRate,
+      saturation: saturation,
+      height: height,
+      specialtyType: specialtyType,
+      albumin: albumin,
+      cholesterol: cholesterol,
+    );
+  }
+
+
+  //Getters
+  CasefileAlbumin get Albumin => _albumin;
+
+  CasefileCholesterol get Cholesterol => _cholesterol;
+
+  //Setters
+  set Albumin(CasefileAlbumin albumin) => _albumin = albumin;
+
+  set Cholesterol(CasefileCholesterol cholesterol) =>
+      _cholesterol = cholesterol;
 
   //Metodos
 
@@ -39,8 +80,4 @@ class CasefileCardiologist extends Casefile {
 
   @override
   void fromSpecialty(SpecialtyType specialtyType, object) {}
-
-  getAlbumin() => this.albumin;
-
-  getCholesterol() => this.cholesterol;
 }

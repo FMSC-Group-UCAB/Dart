@@ -1,14 +1,24 @@
 import '../../interfaces/value_object_interface.dart';
 
 class CasefileHeartRate implements IValueObject<CasefileHeartRate> {
-  int heartRate;
+  int _heartRate;
 
-  CasefileHeartRate(this.heartRate);
+  //Constructor
+
+  CasefileHeartRate(this._heartRate);
+
+  //Getters
+  get HeartRate => _heartRate;
+
+  //Metodos
 
   bool equals(CasefileHeartRate other) {
     //Agregar validaciones
-    return this.heartRate == other.heartRate;
+    return this._heartRate == other._heartRate;
   }
 
-  getHeartRate() => this.heartRate;
+  // Aplicacion del patron factory
+  static CasefileHeartRate create(int heartRate) {
+    return CasefileHeartRate(heartRate);
+  }
 }

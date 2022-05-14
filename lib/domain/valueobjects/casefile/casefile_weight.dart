@@ -1,14 +1,23 @@
 import '../../interfaces/value_object_interface.dart';
 
 class CasefileWeight implements IValueObject<CasefileWeight> {
-  int weight;
+  int _weight;
 
-  CasefileWeight(this.weight);
+  //Constructor
+
+  CasefileWeight(this._weight);
+
+  //Getters
+
+  int get Weight => _weight;
 
   bool equals(CasefileWeight other) {
     //Agregar validaciones
-    return this.weight == other.weight;
+    return this._weight == other._weight;
   }
 
-  getWeight() => this.weight;
+  // Aplicacion del patron factory
+  static CasefileWeight create(int weight) {
+    return CasefileWeight(weight);
+  }
 }
