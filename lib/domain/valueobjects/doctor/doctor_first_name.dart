@@ -1,12 +1,25 @@
 import '../../interfaces/value_object_interface.dart';
 
 class DoctorFirstName implements IValueObject<DoctorFirstName> {
-  String firstName;
+  late final String _firstName;
 
-  DoctorFirstName(this.firstName);
+// getters
+  String get value {
+    return _firstName;
+  }
+
+// constructor
+  DoctorFirstName(String firstName) {
+    _firstName = firstName;
+  }
 
   @override
   bool equals(DoctorFirstName other) {
-    return this.firstName == other.firstName;
+    return _firstName == other._firstName;
+  }
+
+// Patron Factory
+  static DoctorFirstName create(String firstName) {
+    return DoctorFirstName(firstName);
   }
 }
