@@ -1,16 +1,22 @@
 import '../../interfaces/value_object_interface.dart';
 
+///PatientBirthDate: Es un value object utilizado para el manejo de las fechas de nacimiento de los pacientes.
 class PatientBirthDate implements IValueObject<PatientBirthDate>{
 
-  String birthDAte;
+  String _birthDAte;
 
-  PatientBirthDate(this.birthDAte);
+  PatientBirthDate(this._birthDAte);
 
+  // Getters
+  String get birthDAte => _birthDAte;
 
   bool equals(PatientBirthDate other) {
-    //Agregar validaciones y parsear fecha
-    return this.birthDAte == other.birthDAte;  
+    return this._birthDAte == other._birthDAte;  
   }
 
+  /// Patron factory
+  static PatientBirthDate create(String birthDate) {
+    return PatientBirthDate(birthDate);
+  }
 
 }
