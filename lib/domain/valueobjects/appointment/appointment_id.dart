@@ -5,10 +5,15 @@ class AppointmentId implements IValueObject<AppointmentId>{
 
   late int _id;
 
-  AppointmentId(this._id);
-
   // Getters
-  int get valueId => _id;
+  int get value => _id;
+
+  ///Constructor de AppointmentId Value Object
+  AppointmentId(int id){
+    //Agregar validaciones
+    this._id = id;
+  }
+
 
   bool equals(AppointmentId other) {
     return this._id == other._id;  
