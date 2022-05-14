@@ -51,9 +51,4 @@ class Appointment {
     return Appointment(id, status, date, appointmentType, specialtyType);
   }
 
-
-  //Métodos
-  void reschedule(AppointmentDate newDate) {}
-
-  void updateStatus(StatusType newStatus) {}
 }
