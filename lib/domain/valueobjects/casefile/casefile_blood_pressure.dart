@@ -1,14 +1,13 @@
 import '../../interfaces/value_object_interface.dart';
 
 class CasefileBloodPressure implements IValueObject<CasefileBloodPressure> {
-  String _bloodPressure;
-
-  //constructor
-
-  CasefileBloodPressure(this._bloodPressure);
+  late final String _bloodPressure;
 
   //getter
-  get BloodPressure => _bloodPressure;
+  get valueBloodPressure => _bloodPressure;
+
+  //constructor
+  CasefileBloodPressure(this._bloodPressure);
 
   //Metodos de la clase
 
@@ -17,8 +16,8 @@ class CasefileBloodPressure implements IValueObject<CasefileBloodPressure> {
     return this._bloodPressure == other._bloodPressure;
   }
 
-  //Aplicacion del patron factory
-
+  ///Aplicacion del patron factory
+  /// Recibe [bloodPressure] como parametro y crea una instancia de [CasefileBloodPressure]
   static CasefileBloodPressure create(String bloodPressure) {
     return CasefileBloodPressure(bloodPressure);
   }
