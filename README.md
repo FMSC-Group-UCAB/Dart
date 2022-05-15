@@ -1,39 +1,64 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## _myOnlineDoctor_
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
 
-## Features
+## Dart
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
-## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
 
-## Usage
+Implementado por el subgrupo de "The Hackers" conformado por:
+- Carlos Doffiny S-V
+- Manuel Da Pena
+- Santiago Figueroa 
+- Froilán Roa
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
 
-```dart
-const like = 'sample';
-```
+En el siguiente repositorio está la implementación a lo solicitado en el enunciado del ShortPaper #1 :
 
-## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+- Entidades de dominio 
+- Cuatro (4) casos de uso: Registrar Suscripción, Registrar Paciente, Crear Suscripción y Agendar Cita.
+
+
+
+
+## Instalaciones:
+
+
+
+
+Para poder compilar y ejecutar el código se deben instalar el SDK de flutter:
+
+
+https://docs.flutter.dev/get-started/install?gclid=Cj0KCQjwpv2TBhDoARIsALBnVnlrtBnuu59Xwj7Gd_6poLzyHPZ96jUWMH7Npz3ssjZKt9LCnb9tbTYaApDdEALw_wcB&gclsrc=aw.ds
+
+
+
+
+## Comandos:
+
+
+
+
+Para compilar el código se debe presionar F5 en Visual Studio Code.
+## Observar la interacción de los objetos:
+
+
+La interacción de los objetos se hará el archivo main.dart, el cual se compilara ejecutando el comando arriba señalado.
+
+
+
+
+## Tabla con las actividades más significativas de cada integrante: 
+
+
+## Tabla con las actividades mas significativas de cada integrante: 
+
+| Nombre   | Actividades |
+| ------------------ | ----------- |
+| Froilan Roa        |Creación de la entidad Doctor con sus Value Objects, creación del Caso de Uso Registrar Doctor, los Tipos Enumerados de especialidad, retención y la elaboración del readme.md |
+| Manuel Da Pena     |Creacion de la entidad suscripcion con sus Value Objects, eventos del dominio,          |
+| Santiago Figueroa  |             |
+| Carlos Doffiny S-V |             |

@@ -11,10 +11,11 @@ import '../lib/domain/valueobjects/patient/patient_phoneNumber.dart';
 import '../lib/domain/valueobjects/patient/patient_occupation.dart';
 
 void main(List<String> arguments) {
-  print('Hello world!');
+  print('Main');
 
   DomainEvent("Nombre Cambiado", {});
 
+// Invocacion del Caso de Uso registrar paciente
   RegisterPatientUseCase registerPatient = RegisterPatientUseCase();
   registerPatient.registerPatient(
       PatientId(1),
