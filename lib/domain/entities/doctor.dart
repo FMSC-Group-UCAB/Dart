@@ -54,4 +54,17 @@ class Doctor {
       HoldType holdType) {
     return Doctor(id, firstName, lastName, specialty, location, holdType);
   }
+
+  void update(
+      DoctorFirstName firstName,
+      DoctorLastName lastName,
+      List<SpecialtyType> specialty,
+      DoctorLocation location,
+      HoldType holdType) {
+    _firstName = firstName;
+    _lastName = lastName;
+    _specialty = specialty;
+    _location = location;
+    _holdType = holdType;
+  }
 }
