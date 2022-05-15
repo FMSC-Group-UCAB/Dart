@@ -22,7 +22,7 @@ class RequestAppointmentUseCase extends Observable {
   ///Recibe [patient], [doctor], [status], [date], [appointmentType], [specialtyType]
   ///para crear una instancia de la clase [Appointment].
   
-  requestAppointment(Patient patient,Doctor doctor,StatusType status,AppointmentDate date,
+  requestAppointment(Patient patient,Doctor doctor,AppointmentDate date,
   AppointmentType appointmentType,SpecialtyType specialtyType) {
     
     //Si el paciente tiene un hold por mal uso del sistema.
