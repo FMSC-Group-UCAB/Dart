@@ -26,8 +26,8 @@ class RequestAppointmentUseCase extends Observable {
   AppointmentType appointmentType,SpecialtyType specialtyType) {
     
     //Si el paciente tiene un hold por mal uso del sistema.
-    if(patient.holdType == HoldType.BADUSE){
-      throw Exception('El sistema está bloqueado para usted por mal uso.');
+    if(patient.holdType == HoldType.BADUSE || doctor.holdType == HoldType.BADUSE){
+      throw Exception('El sistema está bloqueado para el paciente o para el doctor por el mal uso del mismo.');
     }
 
     //Si el paciente tiene un hold por no tener suscripción activa.
