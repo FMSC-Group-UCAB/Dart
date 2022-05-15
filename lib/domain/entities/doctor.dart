@@ -21,13 +21,6 @@ class Doctor {
   DoctorLocation get location => _location;
   HoldType get holdType => _holdType;
 
-  // setters
-  set firstName(DoctorFirstName firstName) => _firstName = firstName;
-  set lastName(DoctorLastName lastName) => _lastName = lastName;
-  set specialty(List<SpecialtyType> specialty) => _specialty = specialty;
-  set location(DoctorLocation location) => _location = location;
-  set holdType(HoldType holdType) => _holdType = holdType;
-
 // constructor
   Doctor(
       DoctorId id,
@@ -53,5 +46,18 @@ class Doctor {
       DoctorLocation location,
       HoldType holdType) {
     return Doctor(id, firstName, lastName, specialty, location, holdType);
+  }
+
+  void update(
+      DoctorFirstName firstName,
+      DoctorLastName lastName,
+      List<SpecialtyType> specialty,
+      DoctorLocation location,
+      HoldType holdType) {
+    _firstName = firstName;
+    _lastName = lastName;
+    _specialty = specialty;
+    _location = location;
+    _holdType = holdType;
   }
 }
