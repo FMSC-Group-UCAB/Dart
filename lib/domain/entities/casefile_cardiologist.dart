@@ -9,6 +9,8 @@ import '../valueobjects/casefile/casefile_id.dart';
 import '../valueobjects/casefile/casefile_saturation.dart';
 import '../valueobjects/casefile/casefile_height.dart';
 import '../valueobjects/casefile/casefile_range.dart';
+import 'doctor.dart';
+import 'patient.dart';
 
 /// Clase para el manejo de las historias medicas relacionadas con cardilogia
 
@@ -24,6 +26,8 @@ class CasefileCardiologist extends Casefile {
 
   CasefileCardiologist({
     required CasefileId id,
+    required Patient patient,
+    required Doctor doctor,
     required CasefilePersonalBg personalBg,
     required CasefileBloodPressure bloodPressure,
     required CasefileHeartRate heartRate,
@@ -34,6 +38,8 @@ class CasefileCardiologist extends Casefile {
     required CasefileCholesterol cholesterol,
   }) : super(
           id,
+          patient,
+          doctor,
           personalBg,
           bloodPressure,
           heartRate,
@@ -47,6 +53,8 @@ class CasefileCardiologist extends Casefile {
   /// Crea una instancia de [CasefileCardiologist]
   static CasefileCardiologist create(
     CasefileId id,
+    Patient patient,
+    Doctor doctor,
     CasefilePersonalBg personalBg,
     CasefileBloodPressure bloodPressure,
     CasefileHeartRate heartRate,
@@ -58,6 +66,8 @@ class CasefileCardiologist extends Casefile {
   ) {
     return CasefileCardiologist(
       id: id,
+      patient: patient,
+      doctor: doctor,
       personalBg: personalBg,
       bloodPressure: bloodPressure,
       heartRate: heartRate,
