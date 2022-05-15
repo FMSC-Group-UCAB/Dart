@@ -20,11 +20,6 @@ class Appointment {
   AppointmentType get appointmentType => _appointmentType;
   SpecialtyType get specialtyType => _specialtyType;
 
-  //Setters
-  set status(StatusType status) => _status = status;
-  set date(AppointmentDate date) => _date = date;
-  set appointmentType(AppointmentType appointmentType) => _appointmentType = appointmentType;
-  set specialtyType(SpecialtyType specialtyType) => _specialtyType = specialtyType;
 
   //Constructor
   Appointment(

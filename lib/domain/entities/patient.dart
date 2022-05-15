@@ -30,15 +30,6 @@ class Patient {
   HoldType get holdType => _holdType;
 
 
-  //Setters
-  set firstName(PatientFirstName firstName) => _firstName = firstName;
-  set lastName(PatientLastName lastName) => _lastName = lastName;
-  set birthDate(PatientBirthDate birthDate) => _birthDate = birthDate;
-  set email(PatientEmail email) => _email = email;
-  set phoneNumber(PatientPhoneNumber phoneNumber) => _phoneNumber = phoneNumber;
-  set occupation(PatientOccupation occupation) => _occupation = occupation;
-  set holdType(HoldType holdType) => _holdType = holdType;
-
   //Constructor
   Patient(
       PatientId id,
