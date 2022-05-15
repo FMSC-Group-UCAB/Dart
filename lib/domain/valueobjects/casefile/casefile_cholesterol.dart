@@ -1,14 +1,17 @@
 import '../../interfaces/value_object_interface.dart';
+import './casefile_range.dart';
 
 class CasefileCholesterol implements IValueObject<CasefileCholesterol> {
   //Atributos
   late final int _cholesterol;
+  late final CaseFileRange _range;
 
   //Getters
   int get valueCholesterol => _cholesterol;
+  CaseFileRange get range => _range;
 
   //Constructor
-  CasefileCholesterol(this._cholesterol);
+  CasefileCholesterol(this._cholesterol, this._range);
 
   //Métodos
   bool equals(CasefileCholesterol other) {
@@ -17,7 +20,7 @@ class CasefileCholesterol implements IValueObject<CasefileCholesterol> {
 
   ///Aplicación del patrón factory
   /// Recibe [cholesterol] como parametro y crea una instancia de [CasefileCholesterol]
-  static CasefileCholesterol create(int cholesterol) {
-    return CasefileCholesterol(cholesterol);
+  static CasefileCholesterol create(int cholesterol, CaseFileRange range) {
+    return CasefileCholesterol(cholesterol, range);
   }
 }

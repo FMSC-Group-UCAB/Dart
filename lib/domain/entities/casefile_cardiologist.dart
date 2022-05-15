@@ -8,23 +8,17 @@ import 'casefile.dart';
 import '../valueobjects/casefile/casefile_id.dart';
 import '../valueobjects/casefile/casefile_saturation.dart';
 import '../valueobjects/casefile/casefile_height.dart';
+import '../valueobjects/casefile/casefile_range.dart';
 
 /// Clase para el manejo de las historias medicas relacionadas con cardilogia
 
 class CasefileCardiologist extends Casefile {
-  
   late CasefileAlbumin _albumin;
   late CasefileCholesterol _cholesterol;
 
   //Getters
   CasefileAlbumin get Albumin => _albumin;
-
   CasefileCholesterol get Cholesterol => _cholesterol;
-
-  //Setters
-  set Albumin(CasefileAlbumin albumin) => _albumin = albumin;
-
-  set Cholesterol(CasefileCholesterol cholesterol) => _cholesterol = cholesterol;
 
   //Constructor
 
@@ -59,8 +53,8 @@ class CasefileCardiologist extends Casefile {
     CasefileSaturation saturation,
     CasefileHeight height,
     SpecialtyType specialtyType,
-    CasefileAlbumin albumin,
-    CasefileCholesterol cholesterol,
+    String albumin,
+    int cholesterol,
   ) {
     return CasefileCardiologist(
       id: id,
@@ -70,15 +64,20 @@ class CasefileCardiologist extends Casefile {
       saturation: saturation,
       height: height,
       specialtyType: specialtyType,
-      albumin: albumin,
-      cholesterol: cholesterol,
+      albumin: CasefileAlbumin.create(albumin, CaseFileRange.create(0, 150)),
+      cholesterol:
+          CasefileCholesterol.create(cholesterol, CaseFileRange.create(50, 80)),
     );
   }
 
+  /// Recibe una instancia de [dynamic] y la actualiza con los [extras]
 
-  /// Recibe una instancia de [CasefileCardiologist] y la actualiza con los datos de [other]
-  @override
-  updateCasefile(Casefile other) {}
+  updateExtras(dynamic extras) {
+    _albumin =
+        CasefileAlbumin.create(extras['albumin'], this._cholesterol.range);
+    _cholesterol =
+        CasefileCholesterol.create(extras['cholesterol'], this._albumin.range);
+  }
 
   /// Recibe una instancia de [SpecialtyType] y un objeto [object]
   @override

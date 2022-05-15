@@ -17,7 +17,7 @@ abstract class Casefile {
   late CasefileSaturation _saturation;
   late CasefileHeight _height;
   late SpecialtyType _specialtyType;
- 
+
   //getters
   CasefileId get id => _id;
   CasefilePersonalBg get personalBg => _personalBg;
@@ -26,15 +26,6 @@ abstract class Casefile {
   CasefileSaturation get saturation => _saturation;
   CasefileHeight get height => _height;
   SpecialtyType get specialtyType => _specialtyType;
-
-  // setters
-
-  set personalBg(CasefilePersonalBg personalBg) => _personalBg = personalBg;
-  set bloodPressure(CasefileBloodPressure bloodPressure) => _bloodPressure = bloodPressure;
-  set heartRate(CasefileHeartRate heartRate) => _heartRate = heartRate;
-  set saturation(CasefileSaturation saturation) => _saturation = saturation;
-  set height(CasefileHeight height) => _height = height;
-  set specialtyType(SpecialtyType specialtyType) => _specialtyType = specialtyType;
 
   //Constructor
   Casefile(
@@ -53,13 +44,25 @@ abstract class Casefile {
     _height = height;
     _specialtyType = specialtyType;
   }
-  
+
   //Métodos
-  updateCasefile(Casefile other);
-  
+  update(
+      CasefileBloodPressure bloodPressure,
+      CasefileHeartRate heartRate,
+      CasefileSaturation saturation,
+      CasefileHeight height,
+      dynamic extras) {
+
+    _bloodPressure = bloodPressure;
+    _heartRate = heartRate;
+    _saturation = saturation;
+    _height = height;
+
+    updateExtras(extras);
+  }
+
+  void updateExtras(dynamic other);
+
   //Agregar Static
   void fromSpecialty(SpecialtyType specialtyType, object);
-
-
-
 }
