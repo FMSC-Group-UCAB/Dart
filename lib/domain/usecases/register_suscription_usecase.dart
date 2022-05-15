@@ -1,17 +1,17 @@
 import '../entities/patient.dart';
-import '../entities/suscription.dart';
-import '../valueobjects/suscription/suscription_id.dart';
-import '../valueobjects/suscription/suscription_created_at.dart';
-import '../valueobjects/suscription/suscription_paid_at.dart';
-import '../valueobjects/suscription/suscription_closed_at.dart';
+import '../entities/subscription.dart';
+import '../valueobjects/suscription/subscription_id.dart';
+import '../valueobjects/suscription/subscription_created_at.dart';
+import '../valueobjects/suscription/subscription_paid_at.dart';
+import '../valueobjects/suscription/subscription_closed_at.dart';
 import '../enumerations/suscription_cost_type_enum.dart';
 import '../enumerations/suscription_type_enum.dart';
 import '../interfaces/pay_method_interface.dart';
 import '../observables/domain_event.dart';
 import '../observables/observable.dart';
 
-class RegisterSuscriptionUsecase extends Observable {
-  late final Suscription _suscription;
+class RegisterSuscriptionUsecase {
+  late final Subscription _suscription;
   late final List<DomainEvent> _events;
   late final IPayMethod _payMethod;
 
@@ -22,18 +22,18 @@ class RegisterSuscriptionUsecase extends Observable {
   }
 
   registerSuscription(
-      SuscriptionId id,
+      SubscriptionId id,
       Patient patient,
-      SuscriptionCreatedAt createdAt,
-      SuscriptionPaidAt paidAt,
-      SuscriptionClosedAt closedAt,
+      SubscriptionCreatedAt createdAt,
+      SubscriptionPaidAt paidAt,
+      SubscriptionClosedAt closedAt,
       SuscriptionCostType costType,
       SuscriptionType type) {
     //Validar que no tenga una suscripcion activa
     // Agregar excepcion de que no puede tener mas de una suscripcion activa, y que hizo el pago
     if (_payMethod.getPayMethod(costType.cost) == true) {
       //Si pago, crear la suscripcion
-      _suscription = Suscription.create(
+      _suscription = Subscription.create(
           id, patient, type, costType, createdAt, paidAt, closedAt);
       
       //Agregar el evento de que se creo la suscripcion

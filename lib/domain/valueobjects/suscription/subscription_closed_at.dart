@@ -1,27 +1,27 @@
 import '../../interfaces/value_object_interface.dart';
 
 ///SuscriptionClosedAt: Value Object para las fechas de cierre de las suscripciones.
-class SuscriptionClosedAt implements IValueObject<SuscriptionClosedAt> {
-  late final String _closedAt;
+class SubscriptionClosedAt implements IValueObject<SubscriptionClosedAt> {
+  late final DateTime _closedAt;
 
   //Getters
-  String get value {
+  DateTime get value {
     return _closedAt;
   }
 
   ///Constructor de SuscriptionClosedAt Value Object
-  SuscriptionClosedAt(String closedAt) {
+  SubscriptionClosedAt(DateTime closedAt) {
     //ToDo: Validaciones...
     _closedAt = closedAt;
   }
 
   @override
-  bool equals(SuscriptionClosedAt other) {
+  bool equals(SubscriptionClosedAt other) {
     return _closedAt == other._closedAt;
   }
 
   ///Patron Factory.
-  static SuscriptionClosedAt create(String closedAt) {
-    return SuscriptionClosedAt(closedAt);
+  static SubscriptionClosedAt create(DateTime closedAt) {
+    return SubscriptionClosedAt(closedAt);
   }
 }
