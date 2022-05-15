@@ -16,7 +16,7 @@ abstract class Observable {
   }
 
   ///Notifica los observadores.
-  void notifyAll(DomainEvent domainEvents) {
+  void notifyAll(List<DomainEvent> domainEvents) {
     for (var element in _observers) {
       element.raise(domainEvents);
     }
