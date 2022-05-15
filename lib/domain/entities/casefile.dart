@@ -5,12 +5,16 @@ import '../valueobjects/casefile/casefile_height.dart';
 import '../valueobjects/casefile/casefile_saturation.dart';
 import '../valueobjects/casefile/casefile_heart_rate.dart';
 import '../valueobjects/casefile/casefile_id.dart';
+import 'doctor.dart';
+import 'patient.dart';
 
 /// Clase plantilla para el manejo de las historias medicas de los pacientes
 
 abstract class Casefile {
   //Atributos
   late final CasefileId _id;
+  late final Patient _patient;
+  late final Doctor _doctor;
   late CasefilePersonalBg _personalBg;
   late CasefileBloodPressure _bloodPressure;
   late CasefileHeartRate _heartRate;
@@ -20,6 +24,8 @@ abstract class Casefile {
 
   //getters
   CasefileId get id => _id;
+  Patient get patient => _patient;
+  Doctor get doctor => _doctor;
   CasefilePersonalBg get personalBg => _personalBg;
   CasefileBloodPressure get bloodPressure => _bloodPressure;
   CasefileHeartRate get heartRate => _heartRate;
@@ -30,6 +36,8 @@ abstract class Casefile {
   //Constructor
   Casefile(
       CasefileId id,
+      Patient patient,
+      Doctor doctor,
       CasefilePersonalBg personalBg,
       CasefileBloodPressure bloodPressure,
       CasefileHeartRate heartRate,
@@ -45,14 +53,12 @@ abstract class Casefile {
     _specialtyType = specialtyType;
   }
 
-  //Métodos
-  update(
-      CasefileBloodPressure bloodPressure,
-      CasefileHeartRate heartRate,
-      CasefileSaturation saturation,
-      CasefileHeight height,
-      dynamic extras) {
-
+  ///Métodos
+  /// Recibe [id], [personalBg], [bloodPressure], [heartRate], [saturation], [height], [specialtyType] y [cholesterol] como parametros
+  /// y actualiza los valores de los atributos de la clase
+  /// y con [extras] se puede agregar infomación adicional
+  update(CasefileBloodPressure bloodPressure, CasefileHeartRate heartRate,
+      CasefileSaturation saturation, CasefileHeight height, dynamic extras) {
     _bloodPressure = bloodPressure;
     _heartRate = heartRate;
     _saturation = saturation;
