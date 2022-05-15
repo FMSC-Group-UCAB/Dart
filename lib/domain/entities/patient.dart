@@ -30,15 +30,6 @@ class Patient {
   HoldType get holdType => _holdType;
 
 
-  //Setters
-  set firstName(PatientFirstName firstName) => _firstName = firstName;
-  set lastName(PatientLastName lastName) => _lastName = lastName;
-  set birthDate(PatientBirthDate birthDate) => _birthDate = birthDate;
-  set email(PatientEmail email) => _email = email;
-  set phoneNumber(PatientPhoneNumber phoneNumber) => _phoneNumber = phoneNumber;
-  set occupation(PatientOccupation occupation) => _occupation = occupation;
-  set holdType(HoldType holdType) => _holdType = holdType;
-
   //Constructor
   Patient(
       PatientId id,
@@ -72,6 +63,23 @@ class Patient {
       PatientOccupation occupation,
       HoldType holdType) {
     return Patient( id, firstName, lastName, birthDate, email, phoneNumber, occupation, holdType);
+  }
+
+
+  ///Métodos de la clase.
+  ///La función permite actualizar los datos del paciente, los cuales son:
+  /// [firstName], [lastName], [birthDate], [email], [phoneNumber], [occupation] y [holdType]. 
+  void update(PatientFirstName firstName, PatientLastName lastName, PatientBirthDate birthDate, PatientEmail email, 
+  PatientPhoneNumber phoneNumber, PatientOccupation occupation, HoldType holdType) {
+    _firstName = firstName;
+    _lastName = lastName;
+    _birthDate = birthDate;
+    _email = email;
+    _phoneNumber = phoneNumber;
+    _occupation = occupation;
+    _holdType = holdType;
+
+    //TODO: Agregar las validaciones de los campos.
   }
 
 }

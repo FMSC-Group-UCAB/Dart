@@ -20,11 +20,6 @@ class Appointment {
   AppointmentType get appointmentType => _appointmentType;
   SpecialtyType get specialtyType => _specialtyType;
 
-  //Setters
-  set status(StatusType status) => _status = status;
-  set date(AppointmentDate date) => _date = date;
-  set appointmentType(AppointmentType appointmentType) => _appointmentType = appointmentType;
-  set specialtyType(SpecialtyType specialtyType) => _specialtyType = specialtyType;
 
   //Constructor
   Appointment(
@@ -51,6 +46,20 @@ class Appointment {
       AppointmentType appointmentType,
       SpecialtyType specialtyType) {
     return Appointment(id, status, date, appointmentType, specialtyType);
+  }
+
+
+  ///Métodos de la clase.
+  
+  ///Esta función permite actualizar los datos de la cita, los cuales son:
+  /// [status], [date], [appointmentType], [specialtyType]
+  void update(StatusType status, AppointmentDate date, AppointmentType appointmentType, SpecialtyType specialtyType) {
+    _status = status;
+    _date = date;
+    _appointmentType = appointmentType;
+    _specialtyType = specialtyType;
+
+    //TODO: Agregar las validaciones de los campos.
   }
 
 }
