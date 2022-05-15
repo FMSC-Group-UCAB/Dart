@@ -1,11 +1,11 @@
-import 'package:flutter_code/domain/entities/subscription.dart';
-import 'package:flutter_code/domain/enumerations/hold_type_enum.dart';
-import 'package:flutter_code/domain/enumerations/suscription_cost_type_enum.dart';
-import 'package:flutter_code/domain/enumerations/suscription_type_enum.dart';
-import 'package:flutter_code/domain/interfaces/pay_method_interface.dart';
-import 'package:flutter_code/domain/observables/domain_event.dart';
-import 'package:flutter_code/domain/observables/observable.dart';
-import 'package:flutter_code/domain/valueobjects/suscription/subscription_paid_at.dart';
+import '../entities/subscription.dart';
+import '../enumerations/hold_type_enum.dart';
+import '../enumerations/suscription_cost_type_enum.dart';
+import '../enumerations/suscription_type_enum.dart';
+import '../interfaces/pay_method_interface.dart';
+import '../observables/domain_event.dart';
+import '../observables/observable.dart';
+import '../valueobjects/suscription/subscription_paid_at.dart';
 
 class PaySubscriptionUsecase extends Observable {
   late final IPayMethod payMethod;
