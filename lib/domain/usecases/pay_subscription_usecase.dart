@@ -66,6 +66,6 @@ class PaySubscriptionUsecase extends Observable {
     }
 
     //Notificamos
-    notifyAll(events[0]);
+    notifyAll(events);
   }
 }
