@@ -65,4 +65,21 @@ class Patient {
     return Patient( id, firstName, lastName, birthDate, email, phoneNumber, occupation, holdType);
   }
 
+
+  ///Métodos de la clase.
+  ///La función permite actualizar los datos del paciente, los cuales son:
+  /// [firstName], [lastName], [birthDate], [email], [phoneNumber], [occupation] y [holdType]. 
+  void update(PatientFirstName firstName, PatientLastName lastName, PatientBirthDate birthDate, PatientEmail email, 
+  PatientPhoneNumber phoneNumber, PatientOccupation occupation, HoldType holdType) {
+    _firstName = firstName;
+    _lastName = lastName;
+    _birthDate = birthDate;
+    _email = email;
+    _phoneNumber = phoneNumber;
+    _occupation = occupation;
+    _holdType = holdType;
+
+    //TODO: Agregar las validaciones de los campos.
+  }
+
 }

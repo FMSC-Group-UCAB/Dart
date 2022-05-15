@@ -48,4 +48,18 @@ class Appointment {
     return Appointment(id, status, date, appointmentType, specialtyType);
   }
 
+
+  ///Métodos de la clase.
+  
+  ///Esta función permite actualizar los datos de la cita, los cuales son:
+  /// [status], [date], [appointmentType], [specialtyType]
+  void update(StatusType status, AppointmentDate date, AppointmentType appointmentType, SpecialtyType specialtyType) {
+    _status = status;
+    _date = date;
+    _appointmentType = appointmentType;
+    _specialtyType = specialtyType;
+
+    //TODO: Agregar las validaciones de los campos.
+  }
+
 }
