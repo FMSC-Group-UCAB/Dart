@@ -1,6 +1,5 @@
 import '../lib/domain/enumerations/hold_type_enum.dart';
-import 'package:flutter_code/domain/observables/domain_event.dart';
-import 'package:flutter_code/domain/observables/observable.dart';
+import '../lib/domain/observables/domain_event.dart';
 import '../lib/domain/usecases/register_patient_usecase.dart';
 import '../lib/domain/valueobjects/patient/patient_id.dart';
 import '../lib/domain/valueobjects/patient/patient_firstName.dart';
