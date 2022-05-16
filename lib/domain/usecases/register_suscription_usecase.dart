@@ -38,8 +38,10 @@ class RegisterSuscriptionUsecase extends Observable {
           id, patient, type, costType, createdAt, paidAt, closedAt);
 
       //Agregar el evento de que se creo la suscripcion
-      _events.add(DomainEvent.create(
-          patient.firstName.value, {'suscription': _suscription.id.value}));
+      _events.add(DomainEvent.create("Registrar suscripcion", {
+        'owner': patient.firstName.value + ' ' + patient.lastName.value,
+        'ownerId': patient.id.value
+      }));
       print(
           'El paciente ${patient.firstName.value} se suscribio correctamente al sistema con id de suscripcion ${_suscription.id.value} con un costo de ${costType.cost} y un tipo de suscripcion ${type}, pagada en ${paidAt.value} y creada en ${createdAt.value}');
 
