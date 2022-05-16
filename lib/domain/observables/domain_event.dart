@@ -14,6 +14,12 @@ class DomainEvent {
     _payload = payload;
   }
 
+  Map toJson() => {
+        'name': this._name,
+        'timestamp': this._timestamp,
+        'payload': this._payload
+      };
+
   ///Patron Factory.
   static DomainEvent create(String name, Object payload) {
     return DomainEvent(name, payload);

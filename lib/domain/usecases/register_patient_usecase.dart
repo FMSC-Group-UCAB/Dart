@@ -33,7 +33,10 @@ class RegisterPatientUseCase extends Observable {
     print('Paciente registrado exitosamente');
 
     // el owner deberia ser el administrador que registra el paciente, nos lo dara el framework mas tarde.
-    events.add(DomainEvent('Registrar Paciente', {'owner': id}));
+    events.add(DomainEvent('Registrar Paciente', {
+      'owner': firstName.value + ' ' + lastName.value,
+      'ownerId': id.value
+    }));
 
     // patron observador
     notifyAll(events);

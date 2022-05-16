@@ -41,7 +41,7 @@ class paypal implements IPayMethod {
 
 class NuevoObservador extends Observer {
   raise(List<DomainEvent> events) {
-    events.forEach((event) => print(event.toString()));
+    events.forEach((event) => print(event.toJson()));
   }
 }
 
@@ -58,6 +58,8 @@ void main(List<String> arguments) {
       DoctorLocation('1', '-1'),
       HoldType.NONE);
 
+  print(doctor.toString());
+
   final Patient patient = Patient.create(
       PatientId.create(1),
       PatientFirstName.create('Nicole'),
@@ -71,7 +73,11 @@ void main(List<String> arguments) {
   DomainEvent("Nombre Cambiado", {});
 
 // Invocacion del Caso de Uso registrar paciente
+
   RegisterPatientUseCase registerPatient = RegisterPatientUseCase();
+  // suscribiendo el cu al observador
+  registerPatient.add(observer);
+
   registerPatient.registerPatient(
       PatientId(1),
       PatientFirstName('Froilan'),
@@ -87,7 +93,7 @@ void main(List<String> arguments) {
 
   final RequestAppointmentUseCase requestAppointment =
       RequestAppointmentUseCase();
-
+// suscribiendo el cu al observador
   requestAppointment.add(observer);
 
   requestAppointment.requestAppointment(
@@ -113,6 +119,9 @@ void main(List<String> arguments) {
   // Invocacion del Caso de Uso registrar suscripcion
   final RegisterSuscriptionUsecase registersubscription =
       RegisterSuscriptionUsecase(paypal());
+
+// suscribiendo el cu al observador
+  registersubscription.add(observer);
 
   registersubscription.registerSuscription(
       SubscriptionId(1),
