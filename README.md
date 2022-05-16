@@ -19,7 +19,7 @@ En el siguiente repositorio está la implementación a lo solicitado en el enunc
 
 
 - Entidades de dominio 
-- Cuatro (4) casos de uso: Registrar Suscripción, Registrar Paciente, Crear Suscripción y Agendar Cita.
+- Cuatro (4) casos de uso: Registrar Suscripción, Registrar Paciente, Pagar Suscripción y Solicitar Cita.
 
 
 
@@ -58,7 +58,7 @@ La interacción de los objetos se hará el archivo main.dart, el cual se compila
 
 | Nombre   | Actividades |
 | ------------------ | ----------- |
-| Froilan Roa        |Creación de la entidad Doctor con sus Value Objects, creación del Caso de Uso Registrar Doctor, los Tipos Enumerados de especialidad, retención y la elaboración del readme.md |
+| Froilan Roa        |Creación de la entidad Doctor con sus Value Objects, creación del Caso de Uso Registrar Paciente,creacion de los Tipos Enumerados de especialidad, retención y la elaboración del readme.md |
 | Manuel Da Pena     |Creacion de la entidad suscripcion con sus Value Objects, eventos del dominio,          |
 | Santiago Figueroa  |             |
 | Carlos Doffiny S-V |             |
