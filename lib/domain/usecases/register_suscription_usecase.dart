@@ -8,16 +8,17 @@ import '../enumerations/suscription_cost_type_enum.dart';
 import '../enumerations/suscription_type_enum.dart';
 import '../interfaces/pay_method_interface.dart';
 import '../observables/domain_event.dart';
+import '../observables/observable.dart';
 
-class RegisterSuscriptionUsecase {
+class RegisterSuscriptionUsecase extends Observable {
   late final Subscription _suscription;
-  late final List<DomainEvent> _events;
-  late final IPayMethod _payMethod;
+  late final List<DomainEvent> _events = [];
+  late final IPayMethod payMethod;
 
-  ///Agregar el super del observable
-  ///constructor
+  /// Constructor del caso de uso registrar suscripcion que recibe una instancia de IPayMethod
+  /// para poder realizar el pago de la suscripcion
   RegisterSuscriptionUsecase(IPayMethod payMethod) : super() {
-    this._payMethod = payMethod;
+    this.payMethod = payMethod;
   }
 
   registerSuscription(
@@ -28,9 +29,10 @@ class RegisterSuscriptionUsecase {
       SubscriptionClosedAt closedAt,
       SuscriptionCostType costType,
       SuscriptionType type) async {
-    //Validar que no tenga una suscripcion activa
-    // Agregar excepcion de que no puede tener mas de una suscripcion activa, y que hizo el pago
-    if (await _payMethod.pay(costType.cost)) {
+    //Se valida que la suscripcion se haya pagado
+    // const result = await _payMethod.pay(costType.cost);
+
+    if (await payMethod.pay(costType.cost)) {
       //Si pago, crear la suscripcion
       _suscription = Subscription.create(
           id, patient, type, costType, createdAt, paidAt, closedAt);
@@ -38,7 +40,11 @@ class RegisterSuscriptionUsecase {
       //Agregar el evento de que se creo la suscripcion
       _events.add(DomainEvent.create(
           patient.firstName.value, {'suscription': _suscription.id.value}));
-      print('Se creo la suscripcion exitosamente');
+      print(
+          'El paciente ${patient.firstName.value} se suscribio correctamente al sistema con id de suscripcion ${_suscription.id.value} con un costo de ${costType.cost} y un tipo de suscripcion ${type}, pagada en ${paidAt.value} y creada en ${createdAt.value}');
+
+      //Notificamos
+      notifyAll(_events);
     } else {
       //Si no pago, lanzar excepcion
       throw 'No se pudo realizar el pago';
