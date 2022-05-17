@@ -14,7 +14,7 @@ class Subscription {
   late SuscriptionCostType _cost;
   late SubscriptionCreatedAt _createdAt;
   late SubscriptionPaidAt _paidAt;
-  late SubscriptionClosedAt _closedAt;
+  late SubscriptionClosedAt? _closedAt;
 
   //Getters
   SubscriptionId get id => _id;
@@ -23,7 +23,7 @@ class Subscription {
   SuscriptionCostType get cost => _cost;
   SubscriptionCreatedAt get createdAt => _createdAt;
   SubscriptionPaidAt get paidAt => _paidAt;
-  SubscriptionClosedAt get closedAt => _closedAt;
+  SubscriptionClosedAt? get closedAt => _closedAt;
 
   ///Constructor de Suscription.
   Subscription(
@@ -33,7 +33,7 @@ class Subscription {
       SuscriptionCostType cost,
       SubscriptionCreatedAt createdAt,
       SubscriptionPaidAt paidAt,
-      SubscriptionClosedAt closedAt) {
+      SubscriptionClosedAt? closedAt) {
     //ToDo: Validaciones...
     _id = id;
     _patient = patient;
@@ -45,7 +45,7 @@ class Subscription {
   }
 
   update(SuscriptionType type, SuscriptionCostType cost,
-      SubscriptionPaidAt paidAt, SubscriptionClosedAt closedAt) {
+      SubscriptionPaidAt paidAt, SubscriptionClosedAt? closedAt) {
     _type = type;
     _cost = cost;
     _paidAt = paidAt;
@@ -60,7 +60,7 @@ class Subscription {
       SuscriptionCostType cost,
       SubscriptionCreatedAt createdAt,
       SubscriptionPaidAt paidAt,
-      SubscriptionClosedAt closedAt) {
+      SubscriptionClosedAt? closedAt) {
     return Subscription(id, patient, type, cost, createdAt, paidAt, closedAt);
   }
 }
