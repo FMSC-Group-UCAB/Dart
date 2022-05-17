@@ -31,111 +31,25 @@ import '../lib/domain/valueobjects/suscription/subscription_closed_at.dart';
 import '../lib/domain/valueobjects/suscription/subscription_created_at.dart';
 import '../lib/domain/valueobjects/suscription/subscription_id.dart';
 import '../lib/domain/valueobjects/suscription/subscription_paid_at.dart';
-
-///Clase prueba para poder instanciar la interfaz de metodos de pago
-class Paypal implements IPayMethod {
-  @override
-  Future<bool> pay(double cost) async {
-    print('Pago exitoso');
-    return true;
-  }
-}
-
-class NuevoObservador extends Observer {
-  raise(List<DomainEvent> events) {
-    events.forEach((event) => print(event.toJson()));
-  }
-}
+import '../test/observer-test.dart';
+import '../test/paypal-test.dart';
 
 void main(List<String> arguments) {
-  print('Main');
-
+// instanciando el observador de prueba, que imprimira en consola los domain event
   final Observer observer = NuevoObservador();
 
+// invocando el cu pagar suscripcion
   PaySubscription(observer);
-/*
-  final Doctor doctor = Doctor.create(
-      DoctorId.create(1),
-      DoctorFirstName.create('María'),
-      DoctorLastName.create('Pérez'),
-      [SpecialtyType.CARDIOLOGY, SpecialtyType.OPHTALMOLOGY],
-      DoctorLocation('1', '-1'),
-      HoldType.NONE);
-
-  print(doctor.toString());
-
-  final Patient patient = Patient.create(
-      PatientId.create(1),
-      PatientFirstName.create('Nicole'),
-      PatientLastName.create('Marcano'),
-      PatientBirthDate.create(DateTime.now()),
-      PatientEmail.create('nicole@gmail.com'),
-      PatientPhoneNumber.create('+58 (123)153-1532'),
-      PatientOccupation.create('Estudiante'),
-      HoldType.NONE);
-
-  // Invocacion del Caso de Uso registrar paciente
-
-  RegisterPatientUseCase registerPatient = RegisterPatientUseCase();
-  // suscribiendo el cu al observador
-  registerPatient.add(observer);
-
-  registerPatient.registerPatient(
-      PatientId(1),
-      PatientFirstName('Froilan'),
-      PatientLastName('Roa'),
-      PatientBirthDate(DateTime.now()),
-      PatientEmail('email@example.com'),
-      PatientPhoneNumber('+58 0000000000'),
-      PatientOccupation('Student'),
-      HoldType.NONE);
-
-  print('------------------------------------------------------------------');
-  //Caso de uso para solicitar una cita
-
-  final RequestAppointmentUseCase requestAppointment =
-      RequestAppointmentUseCase();
-// suscribiendo el cu al observador
-  requestAppointment.add(observer);
-
-  requestAppointment.requestAppointment(
-      patient,
-      doctor,
-      AppointmentDate.create(new DateTime(2023, 1, 1)),
-      AppointmentType.VIRTUAL,
-      SpecialtyType.OPHTALMOLOGY);
-
-  print('------------------------------------------------------------------');
-
-  ///Crear un paciente prueba
-  final patientTest = Patient.create(
-      PatientId(1),
-      PatientFirstName('Froilan'),
-      PatientLastName('Roa'),
-      PatientBirthDate(DateTime.utc(1989, 1, 1)),
-      PatientEmail('email@email.com'),
-      PatientPhoneNumber('+58 0000000000'),
-      PatientOccupation('Student'),
-      HoldType.NONE);
-
-  // Invocacion del Caso de Uso registrar suscripcion
-  final RegisterSuscriptionUsecase registersubscription =
-      RegisterSuscriptionUsecase(Paypal());
-
-// suscribiendo el cu al observador
-  registersubscription.add(observer);
-
-  registersubscription.registerSuscription(
-      SubscriptionId(1),
-      patientTest,
-      SubscriptionCreatedAt(DateTime.now()),
-      SubscriptionPaidAt(DateTime.now()),
-      SubscriptionClosedAt(DateTime.now()),
-      SuscriptionCostType.BASIC,
-      SuscriptionType.MONTHLY);*/
+// invocando el cu registrar paciente
+  RegisterPatient(observer);
+// invocando el cu solicitar consulta medica
+  RequestAppointment(observer);
+// invocando el cu registrar suscripcion
+  registersubscription(observer);
 }
 
 void PaySubscription(Observer observer) {
+  // creando un paciente de prueba
   final Patient patient = Patient.create(
       PatientId.create(1),
       PatientFirstName.create('Nicole'),
@@ -165,4 +79,85 @@ void PaySubscription(Observer observer) {
   paySubscriptionUsecase.add(observer);
 
   paySubscriptionUsecase.paySuscription(subscription);
+}
+
+void RegisterPatient(Observer observer) {
+  // instanciando el cu
+  RegisterPatientUseCase registerPatient = RegisterPatientUseCase();
+
+  // suscribiendo el cu al observador
+  registerPatient.add(observer);
+
+  registerPatient.registerPatient(
+      PatientId(1),
+      PatientFirstName('Froilan'),
+      PatientLastName('Roa'),
+      PatientBirthDate(DateTime.now()),
+      PatientEmail('email@example.com'),
+      PatientPhoneNumber('+58 0000000000'),
+      PatientOccupation('Student'),
+      HoldType.NONE);
+}
+
+void RequestAppointment(Observer observer) {
+  final Patient patient = Patient.create(
+      PatientId.create(1),
+      PatientFirstName.create('Nicole'),
+      PatientLastName.create('Marcano'),
+      PatientBirthDate.create(DateTime.now()),
+      PatientEmail.create('nicole@gmail.com'),
+      PatientPhoneNumber.create('+58 (123)153-1532'),
+      PatientOccupation.create('Estudiante'),
+      HoldType.NONE);
+
+  final Doctor doctor = Doctor.create(
+      DoctorId.create(1),
+      DoctorFirstName.create('María'),
+      DoctorLastName.create('Pérez'),
+      [SpecialtyType.CARDIOLOGY, SpecialtyType.OPHTALMOLOGY],
+      DoctorLocation('1', '-1'),
+      HoldType.NONE);
+
+//Caso de uso para solicitar una cita
+
+  final RequestAppointmentUseCase requestAppointment =
+      RequestAppointmentUseCase();
+// suscribiendo el cu al observador
+  requestAppointment.add(observer);
+
+  requestAppointment.requestAppointment(
+      patient,
+      doctor,
+      AppointmentDate.create(new DateTime(2023, 1, 1)),
+      AppointmentType.VIRTUAL,
+      SpecialtyType.OPHTALMOLOGY);
+}
+
+void registersubscription(Observer observer) {
+  ///Crear un paciente prueba
+  final patientTest = Patient.create(
+      PatientId(1),
+      PatientFirstName('Froilan'),
+      PatientLastName('Roa'),
+      PatientBirthDate(DateTime.utc(1989, 1, 1)),
+      PatientEmail('email@email.com'),
+      PatientPhoneNumber('+58 0000000000'),
+      PatientOccupation('Student'),
+      HoldType.NONE);
+
+// Invocacion del Caso de Uso registrar suscripcion
+  final RegisterSuscriptionUsecase registersubscription =
+      RegisterSuscriptionUsecase(Paypal());
+
+// suscribiendo el cu al observador
+  registersubscription.add(observer);
+
+  registersubscription.registerSuscription(
+      SubscriptionId(1),
+      patientTest,
+      SubscriptionCreatedAt(DateTime.now()),
+      SubscriptionPaidAt(DateTime.now()),
+      SubscriptionClosedAt(DateTime.now()),
+      SuscriptionCostType.BASIC,
+      SuscriptionType.MONTHLY);
 }
