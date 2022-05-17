@@ -9,8 +9,8 @@
 
 
 Implementado por el subgrupo de "The Hackers" conformado por:
-- Doffiny S-V, Carlos.
 - Da Pena, Manuel.
+- Doffiny S-V, Carlos.
 - Figueroa, Santiago.
 - Roa, Froilán. 
 
@@ -54,16 +54,6 @@ La interacción de los objetos se hará el archivo main.dart, el cual se compila
 
 
 ## Tabla con las actividades mas significativas de cada integrante: 
-# Doffiny S-C, Carlos.
-
-| Actividad                                                            | Commit                                          |
-|----------------------------------------------------------------------|-------------------------------------------------|
-| Creación de las entidades Patient y Appointment.                     | https://github.com/FMSC-Group-UCAB/Dart/pull/3  |
-| Refactor de las carpetas y organización del repositorio.             | https://github.com/FMSC-Group-UCAB/Dart/pull/5  |
-| Refactor de los enums y clases                                       | https://github.com/FMSC-Group-UCAB/Dart/pull/8  |
-| Implementacion de las interfaces Interfaces IGeoLocator y IPayMethod | https://github.com/FMSC-Group-UCAB/Dart/pull/20 |
-| Implementación Caso de Uso "Solicitar cita"                          | https://github.com/FMSC-Group-UCAB/Dart/pull/28 |
-
 # Da Pena, Manuel.
 
 | Actividad                                                                                    | Commit                                          |
@@ -73,6 +63,13 @@ La interacción de los objetos se hará el archivo main.dart, el cual se compila
 | Implementación del caso de uso de “Pagar Suscripción”                                        | https://github.com/FMSC-Group-UCAB/Dart/pull/26 |
 
 
+# Doffiny S-V, Carlos.
+
+| Actividad                                                            | Commit                                          |
+|----------------------------------------------------------------------|-------------------------------------------------|
+| Creación de las entidades Patient y Appointment.                     | https://github.com/FMSC-Group-UCAB/Dart/pull/3  |
+| Implementacion de las interfaces Interfaces IGeoLocator y IPayMethod | https://github.com/FMSC-Group-UCAB/Dart/pull/20 |
+| Implementación Caso de Uso "Solicitar cita"                          | https://github.com/FMSC-Group-UCAB/Dart/pull/28 |
 
 
 # Figueroa, Santiago
