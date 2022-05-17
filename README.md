@@ -42,16 +42,13 @@ https://docs.flutter.dev/get-started/install?gclid=Cj0KCQjwpv2TBhDoARIsALBnVnlrt
 
 
 
-Para compilar el código se debe presionar F5 en Visual Studio Code.
+Para compilar el código se debe presionar F5 en el main de Visual Studio Code.
 ## Observar la interacción de los objetos:
 
 
-La interacción de los objetos se hará el archivo main.dart, el cual se compilara ejecutando el comando arriba señalado.
+La interacción de los objetos se hará el archivo main.dart, el cual se compilara ejecutando el comando arriba señalado. Este archivo contiene una función para cada caso de uso, por lo cual pueden ejecutarse todos en la misma simulación, o puede comentarse el llamado a la función, en caso de solo querer ejecutar un caso de uso en específico.
 
 
-
-
-## Tabla con las actividades más significativas de cada integrante: 
 
 
 ## Tabla con las actividades mas significativas de cada integrante: 
