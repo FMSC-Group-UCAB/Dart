@@ -1,3 +1,4 @@
+import '../lib/domain/entities/subscription.dart';
 import '../lib/domain/entities/doctor.dart';
 import '../lib/domain/entities/patient.dart';
 import '../lib/domain/enumerations/appointmentType_enum.dart';
@@ -12,6 +13,7 @@ import '../lib/domain/observables/observer.interface.dart';
 import '../lib/domain/usecases/register_patient_usecase.dart';
 import '../lib/domain/usecases/register_suscription_usecase.dart';
 import '../lib/domain/usecases/request_appointment_usecase.dart';
+import '../lib/domain/usecases/pay_subscription_usecase.dart';
 import '../lib/domain/valueobjects/appointment/appointment_date.dart';
 import '../lib/domain/valueobjects/doctor/doctor_first_name.dart';
 import '../lib/domain/valueobjects/doctor/doctor_id.dart';
@@ -31,7 +33,7 @@ import '../lib/domain/valueobjects/suscription/subscription_id.dart';
 import '../lib/domain/valueobjects/suscription/subscription_paid_at.dart';
 
 ///Clase prueba para poder instanciar la interfaz de metodos de pago
-class paypal implements IPayMethod {
+class Paypal implements IPayMethod {
   @override
   Future<bool> pay(double cost) async {
     print('Pago exitoso');
@@ -50,6 +52,8 @@ void main(List<String> arguments) {
 
   final Observer observer = NuevoObservador();
 
+  PaySubscription(observer);
+/*
   final Doctor doctor = Doctor.create(
       DoctorId.create(1),
       DoctorFirstName.create('María'),
@@ -70,9 +74,7 @@ void main(List<String> arguments) {
       PatientOccupation.create('Estudiante'),
       HoldType.NONE);
 
-  DomainEvent("Nombre Cambiado", {});
-
-// Invocacion del Caso de Uso registrar paciente
+  // Invocacion del Caso de Uso registrar paciente
 
   RegisterPatientUseCase registerPatient = RegisterPatientUseCase();
   // suscribiendo el cu al observador
@@ -118,7 +120,7 @@ void main(List<String> arguments) {
 
   // Invocacion del Caso de Uso registrar suscripcion
   final RegisterSuscriptionUsecase registersubscription =
-      RegisterSuscriptionUsecase(paypal());
+      RegisterSuscriptionUsecase(Paypal());
 
 // suscribiendo el cu al observador
   registersubscription.add(observer);
@@ -130,5 +132,37 @@ void main(List<String> arguments) {
       SubscriptionPaidAt(DateTime.now()),
       SubscriptionClosedAt(DateTime.now()),
       SuscriptionCostType.BASIC,
-      SuscriptionType.MONTHLY);
+      SuscriptionType.MONTHLY);*/
+}
+
+void PaySubscription(Observer observer) {
+  final Patient patient = Patient.create(
+      PatientId.create(1),
+      PatientFirstName.create('Nicole'),
+      PatientLastName.create('Marcano'),
+      PatientBirthDate.create(DateTime.now()),
+      PatientEmail.create('nicole@gmail.com'),
+      PatientPhoneNumber.create('+58 (123)153-1532'),
+      PatientOccupation.create('Estudiante'),
+      HoldType.NONE);
+
+  final paidAt = DateTime.now().subtract(Duration(days: (12 * 30)));
+
+  final Subscription subscription = Subscription.create(
+      SubscriptionId.create(1),
+      patient,
+      SuscriptionType.MONTHLY,
+      SuscriptionCostType.BASIC,
+      SubscriptionCreatedAt.create(DateTime.now()),
+      SubscriptionPaidAt.create(paidAt),
+      null);
+
+  final payMethod = Paypal();
+
+  PaySubscriptionUsecase paySubscriptionUsecase =
+      PaySubscriptionUsecase(payMethod);
+
+  paySubscriptionUsecase.add(observer);
+
+  paySubscriptionUsecase.paySuscription(subscription);
 }
